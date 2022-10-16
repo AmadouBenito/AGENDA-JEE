@@ -15,40 +15,14 @@
             <div class="imgContainer flex">
                 <img src="logo.png" alt="Logo">
             </div>
-            <button>
-                Nouveau événement
-            </button>
-            <div class="eventToday">
-                <h2>
-                    Événement de la journée
-                </h2>
-                <div class="event">
-                    <div class="signleEventContainer flex">
-                        <div class="time">
-                            <p>12h43</p>
-                        </div>
-                        <div class="details">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque maxime quisquam dicta ratione ea sint natus, fugit, temporibus asperiores recusandae officia, dolorum quas quis possimus.
-                        </div>
-                    </div>
-                    <div class="signleEventContainer flex">
-                        <div class="time">
-                            <p>12h43</p>
-                        </div>
-                        <div class="details">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque maxime quisquam dicta ratione ea sint natus, fugit, temporibus asperiores recusandae officia, dolorum quas quis possimus.
-                        </div>
-                    </div>
-                    <div class="signleEventContainer flex">
-                        <div class="time">
-                            <p>12h43</p>
-                        </div>
-                        <div class="details">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque maxime quisquam dicta ratione ea sint natus, fugit, temporibus asperiores recusandae officia, dolorum quas quis possimus.
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            <form class="form_agenda" action="#" method="post">
+                <input type="date" name="date" id="date">
+                <input type="time" name="time" id="time">
+                <textarea name="contenu" placeholder="Mettez ici le contenu" id="contenu" cols="30" rows="10"></textarea>
+                <button type="submit">Ajouter événement</button>
+            </form>
+
         </div>
         <div class="rightSide">
             <h2>

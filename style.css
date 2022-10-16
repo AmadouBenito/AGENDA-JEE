@@ -206,3 +206,18 @@ h2 {
     text-decoration: none;
     cursor: pointer;
 }
+
+.form_agenda {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.form_agenda input,
+textarea {
+    padding: 10px 5px;
+    margin: 10px 0;
+    border: 1px solid #319DA0;
+    border-radius: 7px;
+    background-color: #f3f3f3;
+}
