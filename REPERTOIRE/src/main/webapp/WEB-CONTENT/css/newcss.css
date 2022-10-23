@@ -1,0 +1,232 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 19 oct. 2022, 22:44:17
+    Author     : BABA SAIDOU DIEME
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+}
+
+.flex {
+    display: flex !important;
+}
+
+.allContainer {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.leftSide {
+    width: 40%;
+    padding: 70px;
+    height: 100%;
+}
+
+.rightSide {
+    width: 50%;
+    height: 100%;
+    background: rgb(245, 245, 245);
+    padding: 70px 7%;
+}
+
+.imgContainer {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgContainer img {
+    width: 45%;
+}
+
+.leftSide button {
+    color: #FFF5E1;
+    background: #781C68;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 30px;
+    font-size: 1.3rem;
+    transition: 300ms;
+}
+
+.leftSide button:hover {
+    background: #FFF5E1;
+    color: #781C68;
+    border: 1px solid #781C68;
+    cursor: pointer;
+}
+
+.eventToday {
+    height: 640px;
+    overflow: scroll;
+}
+
+h2 {
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    margin-top: 1.5rem;
+    color: #319DA0;
+}
+
+.event {
+    min-height: 200px;
+    max-height: 60%;
+    margin-top: 20px;
+    overflow: scroll;
+    border: 0.5px solid #919191;
+    border-radius: 7px;
+}
+
+.signleEventContainer {
+    padding: 20px;
+}
+
+.time p {
+    font-size: 1rem;
+    padding: 2px 10px;
+    color: #781C68;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.details {
+    padding: 7px;
+    background: rgb(220, 219, 219);
+    border-radius: 5px;
+    border: 0.5px solid #781C68;
+    color: #781C68;
+    background: #781c6911;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 200;
+}
+
+.eventsToCome {
+    height: 550px;
+    overflow: scroll;
+}
+
+.eventsToCome .event2 {
+    gap: 10px;
+}
+
+.eventsToCome .event2 .date {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px 10px;
+    background: #FFF5E1;
+    color: #781C68;
+    height: fit-content;
+    width: 35%;
+    border-radius: 4px;
+    box-shadow: 8.8px 7.9px 16.7px rgba(0, 0, 0, 0.03), 50px 45px 133px rgba(0, 0, 0, 0.06);
+    border: #781C68 0.2px solid;
+}
+
+.eventContainer {
+    background: #FFFFFF;
+    border: #781C68 1px solid;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 8.8px 7.9px 16.7px rgba(0, 0, 0, 0.03), 50px 45px 133px rgba(0, 0, 0, 0.06);
+}
+
+.eventContainer .details {
+    padding: 3px;
+    color: #781C68;
+    background: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    border: none;
+}
+
+.eventContainer .time {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: #781C68
+}
+
+
+/* Modal */
+
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content/Box */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+
+/* The Close Button */
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form_agenda {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.form_agenda input,
+textarea {
+    padding: 10px 5px;
+    margin: 10px 0;
+    border: 1px solid #319DA0;
+    border-radius: 7px;
+    background-color: #f3f3f3;
+}
