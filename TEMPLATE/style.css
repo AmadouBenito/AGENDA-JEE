@@ -4,10 +4,14 @@
     box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     width: 100%;
     height: 100vh;
-    padding: 0;
+    padding: 2rem 0;
     margin: 0;
     overflow: auto;
 }
@@ -136,6 +140,7 @@ h2 {
     border-radius: 5px;
     margin-bottom: 10px;
     box-shadow: 8.8px 7.9px 16.7px rgba(0, 0, 0, 0.03), 50px 45px 133px rgba(0, 0, 0, 0.06);
+    position: relative;
 }
 
 .eventContainer .details {
@@ -289,4 +294,21 @@ label {
 .date_gris {
     font-size: 12px;
     color: #888;
+}
+
+.eventContainer img {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 25px;
+    padding: 5px;
+    background: #FFD39A;
+    border-radius: 5px;
+    transform: translate(50px, 0);
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.eventContainer:hover img {
+    transform: translate(0px, 0);
 }
