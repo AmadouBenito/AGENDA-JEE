@@ -248,11 +248,13 @@ function switchActiveEvents(param) {
 
 const calendarControl = new CalendarControl();
 
+
+//Quand on double click on modifie le contenu
 document.querySelectorAll(".details").forEach(function(node) {
     node.ondblclick = function() {
         var val = this.innerHTML.trim();
         var form = `<form style="margin : 0" class="form_agenda" action="#" method="post">
-                        <textarea name="contenu2" placeholder="Mettez ici le contenu" id="contenu2" cols="30" rows="10">${val}</textarea>
+                        <textarea name="contenu2" placeholder="Mettez ici le contenu" id="contenu2" cols="30" rows="5">${val}</textarea>
                         <button style="margin : 0" type="submit">Modifier événement</button>
                     </form>`;
         this.innerHTML = "";
