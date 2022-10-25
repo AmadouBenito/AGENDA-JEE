@@ -227,7 +227,8 @@ h2 {
 }
 
 .form_agenda input,
-textarea {
+textarea,
+select {
     padding: 10px 5px;
     margin: 10px 0;
     border: 1px solid #319DA0;
