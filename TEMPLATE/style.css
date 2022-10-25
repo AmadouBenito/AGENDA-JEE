@@ -50,7 +50,7 @@ body {
     width: 60%;
 }
 
-.leftSide button {
+form button {
     color: #FFF5E1;
     background: #781C68;
     border: none;
@@ -62,7 +62,7 @@ body {
     transition: 300ms;
 }
 
-.leftSide button:hover {
+form button:hover {
     background: #FFF5E1;
     color: #781C68;
     border: 1px solid #781C68;

@@ -247,3 +247,22 @@ function switchActiveEvents(param) {
 }
 
 const calendarControl = new CalendarControl();
+
+document.querySelectorAll(".details").forEach(function(node) {
+    node.ondblclick = function() {
+        var val = this.innerHTML.trim();
+        var form = `<form style="margin : 0" class="form_agenda" action="#" method="post">
+                        <textarea name="contenu2" placeholder="Mettez ici le contenu" id="contenu2" cols="30" rows="10">${val}</textarea>
+                        <button style="margin : 0" type="submit">Modifier événement</button>
+                    </form>`;
+        this.innerHTML = "";
+        console.log(this);
+        this.innerHTML += form;
+        input.value = val;
+        input.onblur = function() {
+            var val = this.value;
+            this.parentNode.innerHTML = val;
+        }
+        input.focus();
+    }
+});
