@@ -256,13 +256,11 @@ document.querySelectorAll(".details").forEach(function(node) {
                         <button style="margin : 0" type="submit">Modifier événement</button>
                     </form>`;
         this.innerHTML = "";
-        console.log(this);
         this.innerHTML += form;
-        input.value = val;
-        input.onblur = function() {
-            var val = this.value;
-            this.parentNode.innerHTML = val;
+        var textarea = document.getElementById("contenu2");
+        textarea.onblur = function() {
+            this.parentNode.parentNode.innerHTML = val;
         }
-        input.focus();
+        textarea.focus();
     }
 });
