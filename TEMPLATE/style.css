@@ -318,3 +318,23 @@ label {
 .eventContainer:hover img {
     transform: translate(0px, 0);
 }
+
+.participants_contanier {
+    display: flex;
+}
+
+.participants_contanier .participant {
+    padding: 5px 10px;
+    font-size: 12px;
+    background: #781c692e;
+    margin-right: 5px;
+    border-radius: 5px;
+    color: #550c49;
+    border: 1px solid #781C68;
+    transition: 300ms;
+}
+
+.participants_contanier .participant:hover {
+    background: #781C68;
+    color: #f3f3f3;
+}
