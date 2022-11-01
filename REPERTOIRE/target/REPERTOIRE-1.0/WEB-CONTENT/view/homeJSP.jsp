@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda</title>
+    <title>Agenda</title>x
     <link rel="stylesheet" href="WEB-CONTENT/css/style.css">
     <link rel="stylesheet" href="WEB-CONTENT/css/cal_style.css">
   
@@ -53,15 +53,16 @@
                     </div>
                 </div>
                 <label for="libelle">Libellé</label>
-                <input type="text" name="libelle" id="libelle" required>
-                <label for="participants">Participants</label>
-                <select name="participant" id="participants">
-                    <option value="">Selectionnez les participants</option>
-                    <option value="Amadou DOIP">Amadou DOIP</option>
-                    <option value="Baba Saidou">Baba Saidou</option>
-                    <option value="Mame Mar Niang">Mame Mar Niang</option>
-                    <option value="Baba Saidou">Baba Saidou</option>
+                <input type="text" name="libelle" id="libelle" placeholder="Libellé de l'évenement" required>
+                <select name="categorie" id="typeEv">
+                    <option value="">Selectionnez lee type d'événement</option>
+                    <option value="Réligion">Réligion</option>
+                    <option value="Famille">Famille</option>
+                    <option value="Etude">Etude</option>
+                    <option value="Travail">Travail</option>
                 </select>
+                <label for="participants">Participants</label>
+                <input type="text" name="participants" id="participants" placeholder="Mettez les participants séparés par vigule">
                 <label for="time">Que voulez-vous noter ?</label>
                 <textarea name="contenu" placeholder="Mettez ici le contenu" id="contenu" cols="30" rows="5"></textarea>
                 <button type="submit">Ajouter événement</button>
@@ -72,12 +73,12 @@
             <h2>
                 Événements à venir
             </h2><br>
-            <div class="filter_container">
-                <button class="filer active" onclick="switchActiveEvents('parJour')">Par jour</button>
-                <button class="filer" onclick="switchActiveEvents('parSemaine')">Par semaine</button>
-                <button class="filer" onclick="switchActiveEvents('parMois')">Par mois</button>
+             <div class="filter_container">
+                <button id="parJour" class="filer active" onclick="switchActiveEvents(this.id)">Par jour</button>
+                <button id="parSemaine" class="filer" onclick="switchActiveEvents(this.id)">Par semaine</button>
+                <button id="parMois" class="filer" onclick="switchActiveEvents(this.id)">Par mois</button>
             </div>
-            <div id="parJour" class="eventsToCome">
+            <div id="id_parJour" class="eventsToCome">
                 
                 <%
                         for(int counter=0; counter<record.size(); counter++){
@@ -92,6 +93,12 @@
                     <div class="allEnventContainer">
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">
+                                    <%
+                                    out.print(record.get(counter).getCategorie());
+                                    %>
+                                </span>
+                                </span>
                                 <span>
                                     <%
                                     out.print(record.get(counter).getLibelle());

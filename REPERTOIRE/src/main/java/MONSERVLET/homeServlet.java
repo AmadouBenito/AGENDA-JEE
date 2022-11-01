@@ -108,7 +108,7 @@ public class homeServlet extends HttpServlet {
         String dateEnd = request.getParameter("dateEnd");
         String timeEnd = request.getParameter("timeEnd");
         String libelle = request.getParameter("libelle");
-        String participant = request.getParameter("participant");
+        String participant = request.getParameter("participants");
         String categorie = request.getParameter("categorie");
         
      
