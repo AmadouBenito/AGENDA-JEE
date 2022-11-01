@@ -38,18 +38,19 @@
                         <input type="time" name="time" id="time">
                     </div>
                 </div>
-                <label for="libelle">Libellé</label>
-                <input type="text" name="libelle" id="libelle">
-                <label for="time">Que voulez-vous noter ?</label>
-                <textarea name="contenu" placeholder="Mettez ici le contenu" id="contenu" cols="30" rows="10"></textarea>
-                <label for="participants">Participants</label>
-                <select name="participants" id="participants">
-                    <option value="">Selectionnez les participants</option>
-                    <option value="">Amadou DOIP</option>
-                    <option value="">Baba Saidou</option>
-                    <option value="">Mame Mar Niang</option>
-                    <option value="">Baba Saidou</option>
+                <select name="typeEv" id="typeEv">
+                    <option value="">Selectionnez lee type d'événement</option>
+                    <option value="">Réligion</option>
+                    <option value="">Famille</option>
+                    <option value="">Etude</option>
+                    <option value="">Travail</option>
                 </select>
+                <label for="libelle">Libellé</label>
+                <input type="text" name="libelle" id="libelle" placeholder="Le libellé de l'événement">
+                <label for="time">Que voulez-vous noter ?</label>
+                <textarea name="contenu" placeholder="Mettez ici le contenu" id="contenu" cols="30" rows="6"></textarea>
+                <label for="participants">Participants</label>
+                <input type="text" name="participants" id="participants" placeholder="Mettez les participants séparés par vigule">
                 <button type="submit">Ajouter événement</button>
             </form>
 
@@ -59,21 +60,22 @@
                 Événements à venir
             </h2><br>
             <div class="filter_container">
-                <button class="filer active" onclick="switchActiveEvents('parJour')">Par jour</button>
-                <button class="filer" onclick="switchActiveEvents('parSemaine')">Par semaine</button>
-                <button class="filer" onclick="switchActiveEvents('parMois')">Par mois</button>
+                <button id="parJour" class="filer active" onclick="switchActiveEvents(this.id)">Par jour</button>
+                <button id="parSemaine" class="filer" onclick="switchActiveEvents(this.id)">Par semaine</button>
+                <button id="parMois" class="filer" onclick="switchActiveEvents(this.id)">Par mois</button>
             </div>
-            <div id="parJour" class="eventsToCome">
+            <div id="id_parJour" class="eventsToCome">
                 <div class="event2 flex">
                     <p class="date">
                         1/3/2022</p>
                     <div class="allEnventContainer">
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">Type Ev.</span>
                                 <span>Le libellé par ici</span>
                                 <br><span class="date_gris">12/08/22 20h34</span> à <span class="date_gris">12/08/22 22h14</span>
                             </div>
-                            <div class="details">
+                            <div id="0" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <div class="participants_contanier">
@@ -85,10 +87,11 @@
                         </div>
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">Type Ev.</span>
                                 <span>Le libellé par ici</span>
                                 <br><span class="date_gris">12/08/22 20h34</span> à <span class="date_gris">12/08/22 22h14</span>
                             </div>
-                            <div class="details">
+                            <div id="3" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -100,10 +103,11 @@
                         </div>
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">Type Ev.</span>
                                 <span>Le libellé par ici</span>
                                 <br><span class="date_gris">12/08/22 20h34</span> à <span class="date_gris">12/08/22 22h14</span>
                             </div>
-                            <div class="details">
+                            <div id="4" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -121,10 +125,11 @@
                     <div class="allEnventContainer">
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">Type Ev.</span>
                                 <span>Le libellé par ici</span>
                                 <br><span class="date_gris">12/08/22 20h34</span> à <span class="date_gris">12/08/22 22h14</span>
                             </div>
-                            <div class="details">
+                            <div id="5" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -136,10 +141,11 @@
                         </div>
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">Type Ev.</span>
                                 <span>Le libellé par ici</span>
                                 <br><span class="date_gris">12/08/22 20h34</span> à <span class="date_gris">12/08/22 22h14</span>
                             </div>
-                            <div class="details">
+                            <div id="6" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -151,10 +157,11 @@
                         </div>
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">Type Ev.</span>
                                 <span>Le libellé par ici</span>
                                 <br><span class="date_gris">12/08/22 20h34</span> à <span class="date_gris">12/08/22 22h14</span>
                             </div>
-                            <div class="details">
+                            <div id="7" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -167,7 +174,7 @@
                     </div>
                 </div>
             </div>
-            <div id="parSemaine" class="eventsToCome d_none">
+            <div id="id_parSemaine" class="eventsToCome d_none">
                 <div class="event2 flex">
                     <p class="date">
                         Semaine N
@@ -175,10 +182,11 @@
                     <div class="allEnventContainer">
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">Type Ev.</span>
                                 <span>Le libellé par ici</span>
                                 <br><span class="date_gris">12/08/22 20h34</span> à <span class="date_gris">12/08/22 22h14</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -190,10 +198,11 @@
                         </div>
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">Type Ev.</span>
                                 <span>Le libellé par ici</span>
                                 <br><span class="date_gris">12/08/22 20h34</span> à <span class="date_gris">12/08/22 22h14</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -205,10 +214,11 @@
                         </div>
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">Type Ev.</span>
                                 <span>Le libellé par ici</span>
                                 <br><span class="date_gris">12/08/22 20h34</span> à <span class="date_gris">12/08/22 22h14</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -227,10 +237,11 @@
                     <div class="allEnventContainer">
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">Type Ev.</span>
                                 <span>Le libellé par ici</span>
                                 <br><span class="date_gris">12/08/22 20h34</span> à <span class="date_gris">12/08/22 22h14</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -242,10 +253,11 @@
                         </div>
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">Type Ev.</span>
                                 <span>Le libellé par ici</span>
                                 <br><span class="date_gris">12/08/22 20h34</span> à <span class="date_gris">12/08/22 22h14</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -264,10 +276,11 @@
                     <div class="allEnventContainer">
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">Type Ev.</span>
                                 <span>Le libellé par ici</span>
                                 <br><span class="date_gris">12/08/22 20h34</span> à <span class="date_gris">12/08/22 22h14</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -279,10 +292,11 @@
                         </div>
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">Type Ev.</span>
                                 <span>Le libellé par ici</span>
                                 <br><span class="date_gris">12/08/22 20h34</span> à <span class="date_gris">12/08/22 22h14</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -295,7 +309,7 @@
                     </div>
                 </div>
             </div>
-            <div id="parMois" class="eventsToCome d_none">
+            <div id="id_parMois" class="eventsToCome d_none">
                 <div class="event2 flex">
                     <p class="date">
                         Le mois ici
@@ -303,9 +317,9 @@
                     <div class="allEnventContainer">
                         <div class="eventContainer">
                             <div class="time">
-                                Mardi 20 : <span>Le libellé par ici</span>
+                                <span class="typeEvent">Type Ev.</span> Mardi 20 : <span>Le libellé par ici</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -317,9 +331,9 @@
                         </div>
                         <div class="eventContainer">
                             <div class="time">
-                                Mardi 20 : <span>Le libellé par ici</span>
+                                <span class="typeEvent">Type Ev.</span> Mardi 20 : <span>Le libellé par ici</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -331,9 +345,9 @@
                         </div>
                         <div class="eventContainer">
                             <div class="time">
-                                Mardi 20 : <span>Le libellé par ici</span>
+                                <span class="typeEvent">Type Ev.</span> Mardi 20 : <span>Le libellé par ici</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -352,9 +366,9 @@
                     <div class="allEnventContainer">
                         <div class="eventContainer">
                             <div class="time">
-                                Lunid 21: <span>Le libellé par ici</span>
+                                <span class="typeEvent">Type Ev.</span> Lunid 21: <span>Le libellé par ici</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -366,9 +380,9 @@
                         </div>
                         <div class="eventContainer">
                             <div class="time">
-                                Lunid 21: <span>Le libellé par ici</span>
+                                <span class="typeEvent">Type Ev.</span> Lunid 21: <span>Le libellé par ici</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -387,9 +401,9 @@
                     <div class="allEnventContainer">
                         <div class="eventContainer">
                             <div class="time">
-                                Lunid 21: <span>Le libellé par ici</span>
+                                <span class="typeEvent">Type Ev.</span> Lunid 21: <span>Le libellé par ici</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -401,9 +415,9 @@
                         </div>
                         <div class="eventContainer">
                             <div class="time">
-                                Lunid 21: <span>Le libellé par ici</span>
+                                <span class="typeEvent">Type Ev.</span> Lunid 21: <span>Le libellé par ici</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -419,14 +433,22 @@
         </div>
         <div class="rightSide">
             <div class="calender_container">
+                <!-- Calendrier -->
                 <div class="calendar"></div>
+                <div class="filter_container second">
+                    <button id="religion" class="filer Type active" onclick="switchActiveTypeEvents(this.id)">Réligion</button>
+                    <button id="etude" class="filer Type" onclick="switchActiveTypeEvents(this.id)">Étude</button>
+                    <button id="travail" class="filer Type" onclick="switchActiveTypeEvents(this.id)">Travail</button>
+                    <button id="divers" class="filer Type" onclick="switchActiveTypeEvents(this.id)">Divers</button>
+                </div>
                 <div class="par_date_event_container">
-                    <div class="allEnventContainer">
+                    <div id="religion_" class="allEnventContainer byType">
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">Réligion : </span>
                                 <span>Le libellé par ici</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -438,9 +460,10 @@
                         </div>
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">Réligion : </span>
                                 <span>Le libellé par ici</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -452,9 +475,10 @@
                         </div>
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">Réligion : </span>
                                 <span>Le libellé par ici</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -466,9 +490,10 @@
                         </div>
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">Réligion : </span>
                                 <span>Le libellé par ici</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -480,9 +505,10 @@
                         </div>
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">Réligion : </span>
                                 <span>Le libellé par ici</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -494,9 +520,10 @@
                         </div>
                         <div class="eventContainer">
                             <div class="time">
+                                <span class="typeEvent">Réligion : </span>
                                 <span>Le libellé par ici</span>
                             </div>
-                            <div class="details">
+                            <div id="1" class="details">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                             <img src="./trash.png" alt="" srcset="">
@@ -507,6 +534,99 @@
                             </div>
                         </div>
                     </div>
+                    <div id="etude_" class="allEnventContainer byType d_none">
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span class="typeEvent">Etude : </span>
+                                <span>Le libellé par ici</span>
+                            </div>
+                            <div id="1" class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                            <img src="./trash.png" alt="" srcset="">
+                            <div class="participants_contanier">
+                                <p class="participant">Modou Peinda</p>
+                                <p class="participant">Benito Fall</p>
+                                <p class="participant">Piscon Diémé</p>
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span class="typeEvent">Etude : </span>
+                                <span>Le libellé par ici</span>
+                            </div>
+                            <div id="1" class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                            <img src="./trash.png" alt="" srcset="">
+                            <div class="participants_contanier">
+                                <p class="participant">Modou Peinda</p>
+                                <p class="participant">Benito Fall</p>
+                                <p class="participant">Piscon Diémé</p>
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span class="typeEvent">Etude : </span>
+                                <span>Le libellé par ici</span>
+                            </div>
+                            <div id="1" class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                            <img src="./trash.png" alt="" srcset="">
+                            <div class="participants_contanier">
+                                <p class="participant">Modou Peinda</p>
+                                <p class="participant">Benito Fall</p>
+                                <p class="participant">Piscon Diémé</p>
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span class="typeEvent">Etude : </span>
+                                <span>Le libellé par ici</span>
+                            </div>
+                            <div id="1" class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                            <img src="./trash.png" alt="" srcset="">
+                            <div class="participants_contanier">
+                                <p class="participant">Modou Peinda</p>
+                                <p class="participant">Benito Fall</p>
+                                <p class="participant">Piscon Diémé</p>
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span class="typeEvent">Etude : </span>
+                                <span>Le libellé par ici</span>
+                            </div>
+                            <div id="1" class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                            <img src="./trash.png" alt="" srcset="">
+                            <div class="participants_contanier">
+                                <p class="participant">Modou Peinda</p>
+                                <p class="participant">Benito Fall</p>
+                                <p class="participant">Piscon Diémé</p>
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span class="typeEvent">Etude : </span>
+                                <span>Le libellé par ici</span>
+                            </div>
+                            <div id="1" class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                            <img src="./trash.png" alt="" srcset="">
+                            <div class="participants_contanier">
+                                <p class="participant">Modou Peinda</p>
+                                <p class="participant">Benito Fall</p>
+                                <p class="participant">Piscon Diémé</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Niaar reQ laa deff -->
                 </div>
             </div>
         </div>

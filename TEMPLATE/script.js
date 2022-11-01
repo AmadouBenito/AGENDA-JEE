@@ -218,24 +218,35 @@ function CalendarControl() {
     calendarControl.init();
 }
 
+/* Swicher entre les evements du milieu */
 function switchActiveEvents(param) {
     let eventContainers = document.querySelectorAll(".eventsToCome")
-    let eventPar = document.getElementById(param)
+    let eventPar = document.getElementById('id_' + param)
     let btns = document.querySelectorAll(".filer")
 
     btns.forEach(btn => {
         btn.classList.remove("active")
     })
-    if (param == "parJour") {
-        btns[0].classList.add("active")
-    }
-    if (param == "parSemaine") {
-        btns[1].classList.add("active")
-    }
-    if (param == "parMois") {
-        btns[2].classList.add("active")
-    }
+    document.getElementById(param).classList.add("active")
 
+    eventContainers.forEach(container => {
+        container.classList.add("d_none")
+    });
+
+    eventPar.classList.remove("d_none")
+
+}
+
+/* Swicher entre les evements du milieu */
+function switchActiveTypeEvents(param) {
+    let eventContainers = document.querySelectorAll(".allEnventContainer.byType")
+    let eventPar = document.getElementById(param + '_')
+    let btns = document.querySelectorAll(".filer.Type")
+
+    btns.forEach(btn => {
+        btn.classList.remove("active")
+    })
+    document.getElementById(param).classList.add("active")
 
 
     eventContainers.forEach(container => {
@@ -249,20 +260,22 @@ function switchActiveEvents(param) {
 const calendarControl = new CalendarControl();
 
 
-//Quand on double click on modifie le contenu
+//Double click pour modifier le contenu
 document.querySelectorAll(".details").forEach(function(node) {
     node.ondblclick = function() {
         var val = this.innerHTML.trim();
+        let id = this.id
+            //console.log(id);
         var form = `<form style="margin : 0" class="form_agenda" action="#" method="post">
-                        <textarea name="contenu2" placeholder="Mettez ici le contenu" id="contenu2" cols="30" rows="5">${val}</textarea>
+                        <textarea name="contenu${id}" placeholder="Mettez ici le contenu" id="contenu${id}" cols="30" rows="5">${val}</textarea>
                         <button style="margin : 0" type="submit">Modifier événement</button>
                     </form>`;
         this.innerHTML = "";
         this.innerHTML += form;
-        var textarea = document.getElementById("contenu2");
-        textarea.onblur = function() {
+        var textarea = document.getElementById("contenu" + id);
+        /* textarea.onblur = function() {
             this.parentNode.parentNode.innerHTML = val;
-        }
+        } */
         textarea.focus();
     }
 });
