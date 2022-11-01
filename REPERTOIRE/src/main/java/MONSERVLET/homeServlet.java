@@ -29,7 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "homeServlet", urlPatterns = {"/test"})
 public class homeServlet extends HttpServlet {
     
-     private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     private connectionDAO myConnection;
     
     @Override
@@ -105,8 +105,14 @@ public class homeServlet extends HttpServlet {
         String contenu = request.getParameter("contenu");
         String date = request.getParameter("date");
         String time = request.getParameter("time");
+        String dateEnd = request.getParameter("dateEnd");
+        String timeEnd = request.getParameter("timeEnd");
+        String libelle = request.getParameter("libelle");
+        String participant = request.getParameter("participant");
+        String categorie = request.getParameter("categorie");
+        
      
-        Enregistrement newRecord = new Enregistrement(date, time, contenu);
+        Enregistrement newRecord = new Enregistrement(date, time, dateEnd, timeEnd, libelle, participant, contenu, categorie);
         myConnection.Ajouter(newRecord, request);
         response.sendRedirect("test");
     }
@@ -119,6 +125,9 @@ public class homeServlet extends HttpServlet {
         this.getServletContext().getRequestDispatcher("/WEB-CONTENT/view/homeJSP.jsp").forward(request, response);
     }
     
+    
+    
+   
 
     /**
      * Returns a short description of the servlet.

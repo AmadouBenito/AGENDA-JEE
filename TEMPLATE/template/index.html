@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="cal_style.css">
+</head>
+
+<body>
+    <div class="allContainer flex">
+        <div class="leftSide">
+            <div class="imgContainer flex">
+                <img src="logo.png" alt="Logo">
+            </div>
+
+            <form class="form_agenda" action="#" method="post">
+                <div class="inputs_container">
+                    <div class="input_left">
+                        <label for="date">Date début</label>
+                        <input type="date" name="date" id="date">
+                    </div>
+                    <div class="input_right">
+                        <label for="time">Heure début</label>
+                        <input type="time" name="time" id="time">
+                    </div>
+                </div>
+                <div class="inputs_container">
+                    <div class="input_left">
+                        <label for="date">Date fin</label>
+                        <input type="date" name="date" id="date">
+                    </div>
+                    <div class="input_right">
+                        <label for="time">Heure fin</label>
+                        <input type="time" name="time" id="time">
+                    </div>
+                </div>
+                <label for="libelle">Libellé</label>
+                <input type="text" name="libelle" id="libelle">
+                <label for="time">Que voulez-vous noter ?</label>
+                <textarea name="contenu" placeholder="Mettez ici le contenu" id="contenu" cols="30" rows="10"></textarea>
+                <button type="submit">Ajouter événement</button>
+            </form>
+
+        </div>
+        <div class="middleSide">
+            <h2>
+                Événements à venir
+            </h2><br>
+            <div class="filter_container">
+                <button class="filer active" onclick="switchActiveEvents('parJour')">Par jour</button>
+                <button class="filer" onclick="switchActiveEvents('parSemaine')">Par semaine</button>
+                <button class="filer" onclick="switchActiveEvents('parMois')">Par mois</button>
+            </div>
+            <div id="parJour" class="eventsToCome">
+                <div class="event2 flex">
+                    <p class="date">
+                        12/3/2022
+                    </p>
+                    <div class="allEnventContainer">
+                        <div class="eventContainer">
+                            <div class="time">
+                                20h34 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                20h34 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                20h34 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event2 flex">
+                    <p class="date">
+                        12/3/2022
+                    </p>
+                    <div class="allEnventContainer">
+                        <div class="eventContainer">
+                            <div class="time">
+                                20h34 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                20h34 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event2 flex">
+                    <p class="date">
+                        12/3/2022
+                    </p>
+                    <div class="allEnventContainer">
+                        <div class="eventContainer">
+                            <div class="time">
+                                20h34 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                20h34 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="parSemaine" class="eventsToCome d_none">
+                <div class="event2 flex">
+                    <p class="date">
+                        Semaine N
+                    </p>
+                    <div class="allEnventContainer">
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span>Le libellé par ici</span>
+                                <br><span class="date_gris">12/08/22 20h34</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span>Le libellé par ici</span>
+                                <br><span class="date_gris">12/08/22 20h34</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span>Le libellé par ici</span>
+                                <br><span class="date_gris">12/08/22 20h34</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event2 flex">
+                    <p class="date">
+                        Semaine N
+                    </p>
+                    <div class="allEnventContainer">
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span>Le libellé par ici</span>
+                                <br><span class="date_gris">12/08/22 20h34</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span>Le libellé par ici</span>
+                                <br><span class="date_gris">12/08/22 20h34</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event2 flex">
+                    <p class="date">
+                        Semaine N
+                    </p>
+                    <div class="allEnventContainer">
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span>Le libellé par ici</span>
+                                <br><span class="date_gris">12/08/22 20h34</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span>Le libellé par ici</span>
+                                <br><span class="date_gris">12/08/22 20h34</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="parMois" class="eventsToCome d_none">
+                <div class="event2 flex">
+                    <p class="date">
+                        Le mois ici
+                    </p>
+                    <div class="allEnventContainer">
+                        <div class="eventContainer">
+                            <div class="time">
+                                Mardi 20 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                Mardi 20 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                Mardi 20 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event2 flex">
+                    <p class="date">
+                        Le mois ici
+                    </p>
+                    <div class="allEnventContainer">
+                        <div class="eventContainer">
+                            <div class="time">
+                                Lunid 21: <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                Lunid 21: <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event2 flex">
+                    <p class="date">
+                        Le mois ici
+                    </p>
+                    <div class="allEnventContainer">
+                        <div class="eventContainer">
+                            <div class="time">
+                                Lunid 21: <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                Lunid 21: <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rightSide">
+            <div class="calender_container">
+                <div class="calendar"></div>
+                <div class="par_date_event_container">
+                    <div class="allEnventContainer">
+                        <div class="eventContainer">
+                            <div class="time">
+                                20h34 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                20h34 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                20h34 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                20h34 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                20h34 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                20h34 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+    </div>
+
+    </div>
+</body>
+<script src="./script.js"></script>
+
+</html>

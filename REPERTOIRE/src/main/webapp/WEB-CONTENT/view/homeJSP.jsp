@@ -15,298 +15,344 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda</title>
-    <link rel="stylesheet" href="ZEB-CONTENT/css/newcss.css">
-    <style>
-        
-        /*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
-*/
-/* 
-    Created on : 19 oct. 2022, 22:44:17
-    Author     : BABA SAIDOU DIEME
-*/
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    width: 100%;
-    height: 100vh;
-    padding: 0;
-    margin: 0;
-    overflow: auto;
-}
-
-.flex {
-    display: flex !important;
-}
-
-.allContainer {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.leftSide {
-    width: 40%;
-    padding: 70px;
-    height: 100%;
-}
-
-.rightSide {
-    width: 50%;
-    height: 100%;
-    background: rgb(245, 245, 245);
-    padding: 70px 7%;
-}
-
-.imgContainer {
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-}
-
-.imgContainer img {
-    width: 45%;
-}
-
-.leftSide button {
-    color: #FFF5E1;
-    background: #781C68;
-    border: none;
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 30px;
-    font-size: 1.3rem;
-    transition: 300ms;
-}
-
-.leftSide button:hover {
-    background: #FFF5E1;
-    color: #781C68;
-    border: 1px solid #781C68;
-    cursor: pointer;
-}
-
-.eventToday {
-    height: 640px;
-    overflow: scroll;
-}
-
-h2 {
-    font-family: 'Arial Narrow', Arial, sans-serif;
-    margin-top: 1.5rem;
-    color: #319DA0;
-}
-
-.event {
-    min-height: 200px;
-    max-height: 60%;
-    margin-top: 20px;
-    overflow: scroll;
-    border: 0.5px solid #919191;
-    border-radius: 7px;
-}
-
-.signleEventContainer {
-    padding: 20px;
-}
-
-.time p {
-    font-size: 1rem;
-    padding: 2px 10px;
-    color: #781C68;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.details {
-    padding: 7px;
-    background: rgb(220, 219, 219);
-    border-radius: 5px;
-    border: 0.5px solid #781C68;
-    color: #781C68;
-    background: #781c6911;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 200;
-}
-
-.eventsToCome {
-    height: 550px;
-    overflow: scroll;
-}
-
-.eventsToCome .event2 {
-    gap: 10px;
-}
-
-.eventsToCome .event2 .date {
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 5px 10px;
-    background: #FFF5E1;
-    color: #781C68;
-    height: fit-content;
-    width: 35%;
-    border-radius: 4px;
-    box-shadow: 8.8px 7.9px 16.7px rgba(0, 0, 0, 0.03), 50px 45px 133px rgba(0, 0, 0, 0.06);
-    border: #781C68 0.2px solid;
-}
-
-.eventContainer {
-    background: #FFFFFF;
-    border: #781C68 1px solid;
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    box-shadow: 8.8px 7.9px 16.7px rgba(0, 0, 0, 0.03), 50px 45px 133px rgba(0, 0, 0, 0.06);
-}
-
-.eventContainer .details {
-    padding: 3px;
-    color: #781C68;
-    background: transparent;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 200;
-    border: none;
-}
-
-.eventContainer .time {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 600;
-    color: #781C68
-}
-
-
-/* Modal */
-
-
-/* The Modal (background) */
-
-.modal {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
-}
-
-
-/* Modal Content/Box */
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    /* Could be more or less, depending on screen size */
-}
-
-
-/* The Close Button */
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.form_agenda {
-    display: flex;
-    flex-direction: column;
-    margin-top: 40px;
-}
-
-.form_agenda input,
-textarea {
-    padding: 10px 5px;
-    margin: 10px 0;
-    border: 1px solid #319DA0;
-    border-radius: 7px;
-    background-color: #f3f3f3;
-}
-    </style>
+    <link rel="stylesheet" href="WEB-CONTENT/css/style.css">
+    <link rel="stylesheet" href="WEB-CONTENT/css/cal_style.css">
+  
 </head>
-
+ 
 <body>
     <%@page import="MONSERVLET.homeServlet" %> 
     <%
         ArrayList<Enregistrement> record = (ArrayList<Enregistrement>) request.getAttribute("listRecord");
-        //int count = (int) session.getAttribute("count");
     %>
     <div class="allContainer flex">
         <div class="leftSide">
             <div class="imgContainer flex">
-                <img src="WEB-CONTENT/view/logo.png" alt="Logo">
+                <img src="WEB-CONTENT/images/logo.png" alt="Logo">
             </div>
 
             <form class="form_agenda" action="test" method="post">
-                <input type="date" name="date" id="date">
-                <input type="time" name="time" id="time">
-                <textarea name="contenu" placeholder="Mettez ici le contenu" id="contenu" cols="30" rows="10"></textarea>
+                <div class="inputs_container">
+                    <div class="input_left">
+                        <label for="date">Date début</label>
+                        <input type="date" name="date" id="date" required>
+                    </div>
+                    <div class="input_right">
+                        <label for="time">Heure début</label>
+                        <input type="time" name="time" id="time" required>
+                    </div>
+                </div>
+                <div class="inputs_container">
+                    <div class="input_left">
+                        <label for="date">Date fin</label>
+                        <input type="date" name="dateEnd" id="dateEnd" required>
+                    </div>
+                    <div class="input_right">
+                        <label for="time">Heure fin</label>
+                        <input type="time" name="timeEnd" id="timeEnd" required>
+                    </div>
+                </div>
+                <label for="libelle">Libellé</label>
+                <input type="text" name="libelle" id="libelle" required>
+                <label for="participants">Participants</label>
+                <select name="participant" id="participants">
+                    <option value="">Selectionnez les participants</option>
+                    <option value="Amadou DOIP">Amadou DOIP</option>
+                    <option value="Baba Saidou">Baba Saidou</option>
+                    <option value="Mame Mar Niang">Mame Mar Niang</option>
+                    <option value="Baba Saidou">Baba Saidou</option>
+                </select>
+                <label for="time">Que voulez-vous noter ?</label>
+                <textarea name="contenu" placeholder="Mettez ici le contenu" id="contenu" cols="30" rows="5"></textarea>
                 <button type="submit">Ajouter événement</button>
             </form>
 
         </div>
-        <div class="rightSide">
+        <div class="middleSide">
             <h2>
                 Événements à venir
             </h2><br>
-            <div class="eventsToCome">
+            <div class="filter_container">
+                <button class="filer active" onclick="switchActiveEvents('parJour')">Par jour</button>
+                <button class="filer" onclick="switchActiveEvents('parSemaine')">Par semaine</button>
+                <button class="filer" onclick="switchActiveEvents('parMois')">Par mois</button>
+            </div>
+            <div id="parJour" class="eventsToCome">
                 
-                    <%
+                <%
                         for(int counter=0; counter<record.size(); counter++){
                     
                     %>
-                        <div class="event2 flex">
-                            <p class="date">
-                                <%
-                                    out.print(record.get(counter).getDate());
+                    <div class="event2 flex">
+                    <p class="date">
+                        <%
+                            out.print(record.get(counter).getDate());
+                        %>
+                    </p>
+                    <div class="allEnventContainer">
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span>
+                                    <%
+                                    out.print(record.get(counter).getLibelle());
+                                    %>
+                                </span>
+                                <br><span class="date_gris">
+                                    <%
+                                    out.print(record.get(counter).getDate()+" à "+record.get(counter).getHeure());
+                                    %>
+                                </span>à<span class="date_gris">
+                                    <%
+                                    out.print(record.get(counter).getDateFin()+" à "+record.get(counter).getHeureFin());
+                                    %>
+                                </span>
+                            </div>
+                            <div class="details">
+                               <%
+                                    out.print(record.get(counter).getContenu());
                                 %>
-                            </p>
-                            <div class="allEnventContainer">
-                                <div class="eventContainer">
-                                    <div class="time">
-                                       <%
-                                            out.print(record.get(counter).getHeure());
-                                        %>
-                                    </div>
-                                    <div class="details">
-                                        <%
-                                            out.print(record.get(counter).getContenu());
-                                        %>                                    
-                                    </div>
-                                </div>
-                             
+                            </div>
+                            <div class="participants_contanier">
+                                <p class="participant">
+                                    <%
+                                    out.print(record.get(counter).getParticipant());
+                                    %>
+                                </p>
+                       
+                            </div>
+                            <a href="deleteEvents?id=<%
+                                    out.print(record.get(counter).getId());
+                                    %>"> 
+                                <img src="WEB-CONTENT/images/trash.png" alt="" srcset=""> 
+                            </a>    
+                            
+                        </div>
+                    </div>
+                  </div>
+                   <%}%>
+           
+            </div>
+            <div id="parSemaine" class="eventsToCome d_none">
+                <div class="event2 flex">
+                    <p class="date">
+                        Semaine N
+                    </p>
+                    <div class="allEnventContainer">
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span>Le libellé par ici</span>
+                                <br><span class="date_gris">12/08/22 20h34</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
                             </div>
                         </div>
-                    <%}%>
-                 
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span>Le libellé par ici</span>
+                                <br><span class="date_gris">12/08/22 20h34</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span>Le libellé par ici</span>
+                                <br><span class="date_gris">12/08/22 20h34</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event2 flex">
+                    <p class="date">
+                        Semaine N
+                    </p>
+                    <div class="allEnventContainer">
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span>Le libellé par ici</span>
+                                <br><span class="date_gris">12/08/22 20h34</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span>Le libellé par ici</span>
+                                <br><span class="date_gris">12/08/22 20h34</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event2 flex">
+                    <p class="date">
+                        Semaine N
+                    </p>
+                    <div class="allEnventContainer">
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span>Le libellé par ici</span>
+                                <br><span class="date_gris">12/08/22 20h34</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                <span>Le libellé par ici</span>
+                                <br><span class="date_gris">12/08/22 20h34</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="parMois" class="eventsToCome d_none">
+                <div class="event2 flex">
+                    <p class="date">
+                        Le mois ici
+                    </p>
+                    <div class="allEnventContainer">
+                        <div class="eventContainer">
+                            <div class="time">
+                                Mardi 20 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                Mardi 20 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                Mardi 20 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event2 flex">
+                    <p class="date">
+                        Le mois ici
+                    </p>
+                    <div class="allEnventContainer">
+                        <div class="eventContainer">
+                            <div class="time">
+                                Lunid 21: <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                Lunid 21: <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event2 flex">
+                    <p class="date">
+                        Le mois ici
+                    </p>
+                    <div class="allEnventContainer">
+                        <div class="eventContainer">
+                            <div class="time">
+                                Lunid 21: <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                Lunid 21: <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rightSide">
+            <div class="calender_container">
+                <div class="calendar"></div>
+                <div class="par_date_event_container">
+                    <div class="allEnventContainer">
+                        <div class="eventContainer">
+                            <div class="time">
+                                20h34 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                20h34 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                20h34 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                20h34 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                20h34 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                        <div class="eventContainer">
+                            <div class="time">
+                                20h34 : <span>Le libellé par ici</span>
+                            </div>
+                            <div class="details">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aliquam aperiam illo laudantium.
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -322,5 +368,5 @@ textarea {
 
     </div>
 </body>
-
+<script src="WEB-CONTENT/js/script.js"></script>
 </html>
