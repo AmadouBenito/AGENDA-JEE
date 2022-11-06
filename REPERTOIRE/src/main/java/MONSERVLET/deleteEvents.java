@@ -4,18 +4,11 @@
  */
 package MONSERVLET;
 
-import com.mysql.cj.xdevapi.Statement;
 import connectionDB.connectionDAO;
 import enregistrement.Enregistrement;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Time;
-import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,10 +19,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author BABA SAIDOU DIEME
  */
-@WebServlet(name = "homeServlet", urlPatterns = {"/test"})
-public class homeServlet extends HttpServlet {
+@WebServlet(name = "deleteEvents", urlPatterns = {"/deleteEvents"})
+public class deleteEvents extends HttpServlet {
     
-    private static final long serialVersionUID = 1L;
+     private static final long serialVersionUID = 1L;
     private connectionDAO myConnection;
     
     @Override
@@ -55,10 +48,16 @@ public class homeServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-CONTENT/view/homeJSP.jsp");
-        dispatcher.forward(request, response);
-           }
+    }
+    
+     private void deleteOneEvent(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Enregistrement enreg = new Enregistrement(id);
+        myConnection.deleteEvent(enreg);
+        response.sendRedirect("test");
+
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -72,12 +71,11 @@ public class homeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-       try {
-            getAll(request, response);
-        } catch (SQLException ex) {
+        try {
+             deleteOneEvent(request, response);
+         } catch (SQLException ex) {
             throw new ServletException(ex);
-        }
+         }
     }
 
     /**
@@ -91,43 +89,8 @@ public class homeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        try {
-            AddRecord(request, response);
-        } catch (SQLException ex) {
-            throw new ServletException(ex);
-        }
-       // processRequest(request, response);
+        processRequest(request, response);
     }
-
-    private void AddRecord(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, ServletException {
-        String contenu = request.getParameter("contenu");
-        String date = request.getParameter("date");
-        String time = request.getParameter("time");
-        String dateEnd = request.getParameter("dateEnd");
-        String timeEnd = request.getParameter("timeEnd");
-        String libelle = request.getParameter("libelle");
-        String participant = request.getParameter("participants");
-        String categorie = request.getParameter("categorie");
-        
-     
-        Enregistrement newRecord = new Enregistrement(date, time, dateEnd, timeEnd, libelle, participant, contenu, categorie);
-        myConnection.Ajouter(newRecord, request);
-        response.sendRedirect("test");
-    }
-
-    private void getAll(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, ServletException {
-        List<Enregistrement> listRecord = myConnection.getAllRecords();
-        request.setAttribute("listRecord", listRecord);
-       
-        this.getServletContext().getRequestDispatcher("/WEB-CONTENT/view/homeJSP.jsp").forward(request, response);
-    }
-    
-    
-    
-   
 
     /**
      * Returns a short description of the servlet.

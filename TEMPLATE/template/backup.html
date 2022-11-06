@@ -1,4 +1,24 @@
-/*
+<%@page import="java.util.ArrayList"%>
+<%@page import="enregistrement.Enregistrement"%>
+<%-- 
+    Document   : homeJSP
+    Created on : 15 sept. 2022, 15:43:30
+    Author     : BABA SAIDOU DIEME
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda</title>
+    <link rel="stylesheet" href="ZEB-CONTENT/css/newcss.css">
+    <style>
+        
+        /*
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
 */
@@ -230,3 +250,77 @@ textarea {
     border-radius: 7px;
     background-color: #f3f3f3;
 }
+    </style>
+</head>
+
+<body>
+    <%@page import="MONSERVLET.homeServlet" %> 
+    <%
+        ArrayList<Enregistrement> record = (ArrayList<Enregistrement>) request.getAttribute("listRecord");
+        //int count = (int) session.getAttribute("count");
+    %>
+    <div class="allContainer flex">
+        <div class="leftSide">
+            <div class="imgContainer flex">
+                <img src="WEB-CONTENT/view/logo.png" alt="Logo">
+            </div>
+
+            <form class="form_agenda" action="test" method="post">
+                <input type="date" name="date" id="date">
+                <input type="time" name="time" id="time">
+                <textarea name="contenu" placeholder="Mettez ici le contenu" id="contenu" cols="30" rows="10"></textarea>
+                <button type="submit">Ajouter événement</button>
+            </form>
+
+        </div>
+        <div class="rightSide">
+            <h2>
+                Événements à venir
+            </h2><br>
+            <div class="eventsToCome">
+                
+                    <%
+                        for(int counter=0; counter<record.size(); counter++){
+                    
+                    %>
+                        <div class="event2 flex">
+                            <p class="date">
+                                <%
+                                    out.print(record.get(counter).getDate());
+                                %>
+                            </p>
+                            <div class="allEnventContainer">
+                                <div class="eventContainer">
+                                    <div class="time">
+                                       <%
+                                            out.print(record.get(counter).getHeure());
+                                        %>
+                                    </div>
+                                    <div class="details">
+                                        <%
+                                            out.print(record.get(counter).getContenu());
+                                        %>                                    
+                                    </div>
+                                </div>
+                             
+                            </div>
+                        </div>
+                    <%}%>
+                 
+            </div>
+        </div>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+    </div>
+
+    </div>
+</body>
+
+</html>

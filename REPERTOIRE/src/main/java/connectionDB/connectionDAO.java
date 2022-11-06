@@ -70,12 +70,18 @@ public class connectionDAO {
     
    public boolean Ajouter(Enregistrement enreg,HttpServletRequest request) throws SQLException, IOException, ServletException {
         
-        String sql = "INSERT INTO enregistrement (date, heure, contenu) VALUES (?,?,?);";
+        String sql = "INSERT INTO enregistrement (date, heure, dateEnd, timeEnd, libelle, participant, contenu, categorie) VALUES (?,?,?,?,?,?,?,?);";
         connect();
         PreparedStatement statement = jdbcConnection.prepareStatement(sql);
         statement.setString(1, enreg.getDate());
         statement.setString(2, enreg.getHeure());
-        statement.setString(3, enreg.getContenu());
+        statement.setString(3, enreg.getDateFin());
+        statement.setString(4, enreg.getHeureFin());
+        statement.setString(5, enreg.getLibelle());
+        statement.setString(6, enreg.getParticipant());
+        statement.setString(7, enreg.getContenu());
+        statement.setString(8, enreg.getCategorie());
+        
    
         boolean rowInserted = statement.executeUpdate() > 0;
         statement.close();
@@ -97,16 +103,73 @@ public class connectionDAO {
             String date = resultSet.getString("date");
             String time = resultSet.getString("heure");
             String contenu = resultSet.getString("contenu");
+            String dateEnd = resultSet.getString("dateEnd");
+            String timeEnd = resultSet.getString("timeEnd");
+            String libelle = resultSet.getString("libelle");
+            String participant = resultSet.getString("participant");
+            String categorie = resultSet.getString("categorie");
             
-            Enregistrement enreg = new Enregistrement(id, date, time, contenu);
+            Enregistrement enreg = new Enregistrement(id, date, time,dateEnd, timeEnd, libelle,participant, contenu, categorie);
             listRecords.add(enreg);
         }
         resultSet.close();
         statement.close();
         disconnect();
         return listRecords;
-    }
+    } 
 
    
+   public boolean deleteEvent(Enregistrement enreg) throws SQLException {
+        String sql = "DELETE FROM enregistrement where id = ?";
+        connect();
+        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
+        statement.setInt(1, enreg.getId());
+        boolean rowDeleted = statement.executeUpdate() > 0;
+        statement.close();
+        disconnect();
+        return rowDeleted;
+
+    }
+   
+   public boolean updateEvent(Enregistrement enreg, HttpServletRequest request) throws SQLException, IOException, ServletException {
+         
        
+        String sql = "UPDATE article SET contenu = ?";
+        sql += " WHERE id = ?";
+        connect();
+        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
+        statement.setString(1, enreg.getContenu());
+        statement.setInt(2, enreg.getId());
+        
+        boolean rowUpdated = statement.executeUpdate() > 0;
+        statement.close();
+        disconnect();
+        return rowUpdated;
+
+    }
+   
+   public Enregistrement getEvent(int id) throws SQLException {
+        Enregistrement enreg = null;
+        String sql = "SELECT * FROM article WHERE idarticle = ?";
+        connect();
+        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
+        statement.setInt(1, id);
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            int idEvent = resultSet.getInt("id");
+            String contenu = resultSet.getString("contenu");
+            String date = resultSet.getString("date");
+            String dateEnd = resultSet.getString("dateEnd");
+            String participant = resultSet.getString("participant");
+            String libelle = resultSet.getString("libelle");
+            String time = resultSet.getString("time");
+            String timeEnd = resultSet.getString("timeEnd");
+            String categorie = resultSet.getString("categorie");
+            
+            enreg = new Enregistrement(idEvent, date, time, dateEnd, timeEnd, libelle,participant,contenu, categorie);
+        }
+        resultSet.close();
+        statement.close();
+        return enreg;
+    }
 }

@@ -4,17 +4,14 @@
  */
 package MONSERVLET;
 
-import com.mysql.cj.xdevapi.Statement;
 import connectionDB.connectionDAO;
 import enregistrement.Enregistrement;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,8 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author BABA SAIDOU DIEME
  */
-@WebServlet(name = "homeServlet", urlPatterns = {"/test"})
-public class homeServlet extends HttpServlet {
+@WebServlet(name = "updateEvent", urlPatterns = {"/updateEvent"})
+public class updateEvent extends HttpServlet {
     
     private static final long serialVersionUID = 1L;
     private connectionDAO myConnection;
@@ -54,11 +51,18 @@ public class homeServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+       
+    }
+    
+     private void updateEvent(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String contenu = request.getParameter("contenu2");
         
-        response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-CONTENT/view/homeJSP.jsp");
-        dispatcher.forward(request, response);
-           }
+        Enregistrement newEnreg = new Enregistrement(id, contenu);
+        myConnection.updateEvent(newEnreg, request);
+        response.sendRedirect("test");
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -72,11 +76,15 @@ public class homeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-       try {
-            getAll(request, response);
+        try {
+            int id = Integer.parseInt(request.getParameter("id"));
+            Enregistrement existingArticle = myConnection.getEvent(id);
+            listRecord(request, response);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("article.jsp");
+            request.setAttribute("produit", existingArticle);
+            dispatcher.forward(request, response);
         } catch (SQLException ex) {
-            throw new ServletException(ex);
+            Logger.getLogger(updateEvent.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -91,44 +99,18 @@ public class homeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        try {
-            AddRecord(request, response);
+       try {
+            updateEvent(request, response);
         } catch (SQLException ex) {
             throw new ServletException(ex);
         }
-       // processRequest(request, response);
     }
 
-    private void AddRecord(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, ServletException {
-        String contenu = request.getParameter("contenu");
-        String date = request.getParameter("date");
-        String time = request.getParameter("time");
-        String dateEnd = request.getParameter("dateEnd");
-        String timeEnd = request.getParameter("timeEnd");
-        String libelle = request.getParameter("libelle");
-        String participant = request.getParameter("participants");
-        String categorie = request.getParameter("categorie");
-        
-     
-        Enregistrement newRecord = new Enregistrement(date, time, dateEnd, timeEnd, libelle, participant, contenu, categorie);
-        myConnection.Ajouter(newRecord, request);
-        response.sendRedirect("test");
-    }
-
-    private void getAll(HttpServletRequest request, HttpServletResponse response)
+     private void listRecord(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         List<Enregistrement> listRecord = myConnection.getAllRecords();
         request.setAttribute("listRecord", listRecord);
-       
-        this.getServletContext().getRequestDispatcher("/WEB-CONTENT/view/homeJSP.jsp").forward(request, response);
     }
-    
-    
-    
-   
-
     /**
      * Returns a short description of the servlet.
      *

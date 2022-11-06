@@ -1,15 +1,7 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
-*/
-/* 
-    Created on : 19 oct. 2022, 22:44:17
-    Author     : BABA SAIDOU DIEME
-*/
-
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -30,17 +22,18 @@ body {
     overflow: hidden;
 }
 
-.leftSide {
-    width: 40%;
-    padding: 70px;
+.leftSide,
+.rightSide {
+    width: 30%;
+    padding: 10px 50px;
     height: 100%;
 }
 
-.rightSide {
-    width: 50%;
-    height: 100%;
+.middleSide {
+    width: 40%;
+    padding: 1rem 2rem;
+    background-color: transparent;
     background: rgb(245, 245, 245);
-    padding: 70px 7%;
 }
 
 .imgContainer {
@@ -50,7 +43,7 @@ body {
 }
 
 .imgContainer img {
-    width: 45%;
+    width: 60%;
 }
 
 .leftSide button {
@@ -137,8 +130,9 @@ h2 {
 
 .eventContainer {
     background: #FFFFFF;
-    border: #781C68 1px solid;
+    border: #d2d2d2 1px solid;
     padding: 10px 20px;
+    border-left: 8px solid #FFD39A;
     border-radius: 5px;
     margin-bottom: 10px;
     box-shadow: 8.8px 7.9px 16.7px rgba(0, 0, 0, 0.03), 50px 45px 133px rgba(0, 0, 0, 0.06);
@@ -146,7 +140,7 @@ h2 {
 
 .eventContainer .details {
     padding: 3px;
-    color: #781C68;
+    color: #888;
     background: transparent;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 200;
@@ -156,7 +150,7 @@ h2 {
 .eventContainer .time {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
-    color: #781C68
+    color: #319DA0
 }
 
 
@@ -229,4 +223,70 @@ textarea {
     border: 1px solid #319DA0;
     border-radius: 7px;
     background-color: #f3f3f3;
+}
+
+label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: #781C68;
+}
+
+.inputs_container {
+    display: flex;
+    width: 100%;
+}
+
+.inputs_container {
+    width: 100%;
+}
+
+.inputs_container>.input_left {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs_container>.input_right {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+}
+
+.filter_container {
+    padding: 1rem 0;
+}
+
+.filter_container .filer {
+    padding: 0.5rem 1.3rem;
+    margin-right: 1rem;
+    border: 1px solid #319DA0;
+    border-radius: 5px;
+    color: #319DA0;
+    transition: 300ms;
+}
+
+.filter_container .filer.active {
+    background-color: #319DA0;
+    color: #fefefe;
+}
+
+.filter_container .filer:hover {
+    background-color: #319DA0;
+    color: #fefefe;
+}
+
+.par_date_event_container {
+    max-height: 22rem;
+    overflow: scroll;
+    padding-top: 1rem;
+}
+
+.d_none {
+    display: none;
+}
+
+.date_gris {
+    font-size: 12px;
+    color: #888;
 }
