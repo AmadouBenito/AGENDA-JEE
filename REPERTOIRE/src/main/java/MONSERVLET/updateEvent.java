@@ -57,7 +57,7 @@ public class updateEvent extends HttpServlet {
      private void updateEvent(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
-        String contenu = request.getParameter("contenu2");
+        String contenu = request.getParameter("contenu"+id);
         
         Enregistrement newEnreg = new Enregistrement(id, contenu);
         myConnection.updateEvent(newEnreg, request);

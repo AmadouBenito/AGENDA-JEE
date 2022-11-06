@@ -267,6 +267,7 @@ document.querySelectorAll(".details").forEach(function(node) {
         let id = this.id
             //console.log(id);
         var form = `<form style="margin : 0" class="form_agenda" action="#" method="post">
+                        <input type="text" name = "id${id}" value="${id}"/>
                         <textarea name="contenu${id}" placeholder="Mettez ici le contenu" id="contenu${id}" cols="30" rows="5">${val}</textarea>
                         <button style="margin : 0" type="submit">Modifier événement</button>
                     </form>`;

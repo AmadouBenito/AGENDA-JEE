@@ -114,7 +114,9 @@
                                     %>
                                 </span>
                             </div>
-                            <div class="details">
+                            <div class="details" id=" <%
+                                    out.print(record.get(counter).getId());
+                            %>">
                                <%
                                     out.print(record.get(counter).getContenu());
                                 %>
@@ -139,7 +141,7 @@
                    <%}%>
            
             </div>
-            <div id="parSemaine" class="eventsToCome d_none">
+            <div id="id_parSemaine" class="eventsToCome d_none">
                 <div class="event2 flex">
                     <p class="date">
                         Semaine N
@@ -225,7 +227,7 @@
                     </div>
                 </div>
             </div>
-            <div id="parMois" class="eventsToCome d_none">
+            <div id="id_parMois" class="eventsToCome d_none">
                 <div class="event2 flex">
                     <p class="date">
                         Le mois ici

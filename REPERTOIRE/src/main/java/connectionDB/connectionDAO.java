@@ -132,20 +132,22 @@ public class connectionDAO {
     }
    
    public boolean updateEvent(Enregistrement enreg, HttpServletRequest request) throws SQLException, IOException, ServletException {
-         
-       
+       boolean rowUpdated = false;
+       Enregistrement en = this.getEvent(enreg.getId());
+       if(en != null){
         String sql = "UPDATE article SET contenu = ?";
-        sql += " WHERE id = ?";
+        sql += " WHERE id = 6";
         connect();
         PreparedStatement statement = jdbcConnection.prepareStatement(sql);
         statement.setString(1, enreg.getContenu());
-        statement.setInt(2, enreg.getId());
+        //statement.setInt(2, enreg.getId());
         
-        boolean rowUpdated = statement.executeUpdate() > 0;
+        rowUpdated = statement.executeUpdate() > 0;
         statement.close();
         disconnect();
-        return rowUpdated;
-
+        
+        }
+       return rowUpdated;
     }
    
    public Enregistrement getEvent(int id) throws SQLException {
